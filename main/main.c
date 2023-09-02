@@ -5,37 +5,64 @@
 #include "esp_random.h"
 #include "esp_log.h"
 
-#include "freertos/FreeRTOS.h"
+#include "driver/gpio.h"
+
+#include "freertos/FreeRTOS.h" // delays etc
 #include "freertos/task.h"
 
-#define TAG "DELAY" 
 
 void app_main(void);
 
-void logInfo(void);
+void delayDemonstration_vTaskDelayUntil(TickType_t);
+void delayDemonstration_vTaskDelay(int(*)(void));
 int  getDicerollNumber(void);
-void delay_vTaskDelay(int (*getNewNumber)(void));
-void delay_vTaskDelayUntil(TickType_t);
+
+void logInfo(void);
+void blinker(void);
 
 
 void app_main(void)
 {
-  delay_vTaskDelay(getDicerollNumber);
-  // delay_vTaskDelayUntil(10);
-
+  // delayDemonstration_vTaskDelay(getDicerollNumber);
+  // delayDemonstration_vTaskDelayUntil(10);
+  blinker();
 }
 
-void delay_vTaskDelayUntil(TickType_t freq ) {
+void blinker(void) {
+  int PIN = 2;
+  esp_err_t result = gpio_set_direction(PIN, GPIO_MODE_OUTPUT);
+  if (result != ESP_OK) {
+    ESP_LOGE("PIN ERROR", "Failed to set GPIO Pin %d direction with an error of %s", PIN, esp_err_to_name(result));
+    vTaskDelete(NULL);
+  }
+  // ESP_LOGI("PINFO", "Pin %d directionset result: %s", (int)PIN, esp_err_to_name(result));
+
+  uint32_t isOn = 0;
+  for (;;) 
+  {
+    isOn = !isOn; 
+    esp_err_t result = gpio_set_level(PIN, isOn);
+    if (result != ESP_OK) {
+      ESP_LOGE("GPIO ERROR", "Failed to set GPIO Pin %d level with an error of %s", PIN, esp_err_to_name(result));
+      vTaskDelete(NULL);
+    }
+    // ESP_LOGI("PINFO", "Pin %d levelset result: %s", (int)PIN, esp_err_to_name(result));
+
+    vTaskDelay(3000 / portTICK_PERIOD_MS);   
+  }
+} 
+
+void delayDemonstration_vTaskDelayUntil(TickType_t freq) {
   // This is preferable for fixed frequency execution using abs rather than the relative time at which calling task should unblock
   TickType_t lastWokeTime = xTaskGetTickCount();
   int i = 0;
   while(1) {
-    ESP_LOGI(TAG, "in loop %d", i++);
+    ESP_LOGI("LOOP", "in loop %d", i++);
     vTaskDelayUntil(&lastWokeTime, freq); /// Block after each log
   }
 }
 
-void delay_vTaskDelay(int (*getNewNumber)(void)) {
+void delayDemonstration_vTaskDelay(int (*getNewNumber)(void)) {
   for (;;)
   {
     int number = getNewNumber();
