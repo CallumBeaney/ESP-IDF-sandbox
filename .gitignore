@@ -1,0 +1,7 @@
+build/
+.devcontainer/
+.vscode/settings.json
+.vscode/tasks.json
+sdkconfig
+sdkconfig.old
+.DS_Store
