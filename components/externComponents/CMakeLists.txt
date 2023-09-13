@@ -4,4 +4,4 @@
 idf_component_register(
   SRCS "extern.c" 
   INCLUDE_DIRS "." 
-  REQUIRES "driver")
+  REQUIRES "log")
