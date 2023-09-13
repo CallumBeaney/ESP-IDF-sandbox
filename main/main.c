@@ -1,14 +1,17 @@
+// C stuff
 #include <stdio.h>
 #include <string.h> // memset, strlen
 #include "math.h" 
-#include "helpers.h"
 
+// When you setup the CMakeLists.txt for custom folder/files, you need to run `idf.py build` to make the main.c accept the #include
+#include "helpers.h" 
+#include "extern.h"
+
+// ESP stuff
 #include "esp_system.h"
 #include "esp_random.h"
 #include "esp_log.h"
-
 #include "driver/gpio.h"
-
 #include "freertos/FreeRTOS.h" // delays etc
 #include "freertos/task.h"
 
@@ -29,7 +32,7 @@ void app_main(void)
   // delayDemonstration_vTaskDelayUntil(10);
   // blinker(2);
   // captureInput();
-
+  
 }
 
 void captureInput(void) {
