@@ -4,7 +4,8 @@
 #include "math.h" 
 
 // When you setup the CMakeLists.txt for custom folder/files, you need to run `idf.py build` to make the main.c accept the #include
-#include "helpers.h" 
+#include "helpers.h"
+#include "tasks.h"
 #include "../components/externComponents/extern.h"
 
 // ESP stuff
@@ -24,15 +25,13 @@ void blinker(gpio_num_t PIN);
 
 void app_main(void)
 {
-  // logInfo(); /// This is in ../components/~
-
-  /// in ./helpers
+  // logInfo();
   // delayDemonstration_vTaskDelay(getDicerollNumber);
   // delayDemonstration_vTaskDelayUntil(10);
-  
+  handleTwoTasksConcurrently();
+
   // blinker(2);
   // captureInput();
-
 }
 
 void captureInput(void) {
