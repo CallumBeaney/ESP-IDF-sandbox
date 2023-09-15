@@ -28,7 +28,10 @@ void app_main(void)
   // logInfo();
   // delayDemonstration_vTaskDelay(getDicerollNumber);
   // delayDemonstration_vTaskDelayUntil(10);
-  handleTwoTasksConcurrently();
+
+  // handleTwoTasksConcurrently();
+  // runTwoTasksWithHandlers();
+
 
   // blinker(2);
   // captureInput();
