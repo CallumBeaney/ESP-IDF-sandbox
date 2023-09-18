@@ -5,9 +5,10 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
+/* READ BOTTOM -> TOP */
+
 /// xTaskCreate (address of task function, task alias, amount of stackmem allocated within the task, optional parameters, priority where it chooses the highest priority rank, task handle)
 /// Tasks are normally implemented as an infinite loop; the function which implements the task must never attempt to return or exit. Tasks can, however, delete themselves: https://www.freertos.org/a00126.html
-
 
 //// Here is a guide to running two tasks + also using handlers
 
@@ -68,6 +69,7 @@ void runTwoTasksWithHandlers(void)
   xTaskCreate(&sender, "sender", 2048, NULL, 2, NULL);
 }
 
+// __________________________________________________________________
 
 
 //// Here is a guide just to running two tasks concurrently
@@ -77,9 +79,12 @@ void task1(void * params) // note is a pointer to void; allows parameter type fl
   int index = 0;
   while (1)
   {
+    printf("Checking index...\n");
+    index++;
+
     printf("1:%i - %s\n", index++, (char *) params);
     vTaskDelay(1000 / portTICK_PERIOD_MS);
-    if (index == 100) {vTaskDelete( NULL );}
+    // if (index == 100) {vTaskDelete( NULL );}
   }
 }
 

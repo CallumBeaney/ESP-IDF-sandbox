@@ -4,8 +4,10 @@
 #include "math.h" 
 
 // When you setup the CMakeLists.txt for custom folder/files, you need to run `idf.py build` to make the main.c accept the #include
-#include "helpers.h"
+#include "delay.h"
 #include "tasks.h"
+#include "mutex.h"
+#include "queue.h"
 #include "../components/externComponents/extern.h"
 
 // ESP stuff
@@ -30,8 +32,10 @@ void app_main(void)
   // delayDemonstration_vTaskDelayUntil(10);
 
   // handleTwoTasksConcurrently();
-  // runTwoTasksWithHandlers();
+  // runTwoTasksWithHandlers();2
 
+  // mutex();
+  // makeQueue();
 
   // blinker(2);
   // captureInput();
