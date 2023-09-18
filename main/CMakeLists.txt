@@ -6,7 +6,7 @@ idf_component_register(
     "delay/delay.c"
     "twotasks/tasks.c"
     "mutex/mutex.c"
-    "semaphor/sema.c"
+    "semaphore/sema.c"
     "queue/queue.c"
     "eventGroup/group.c"
   
@@ -15,7 +15,7 @@ idf_component_register(
     "delay" 
     "twotasks"
     "mutex"
-    "semaphor"
+    "semaphore"
     "queue"
     "eventGroup"
 

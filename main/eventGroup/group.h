@@ -3,7 +3,7 @@
 
 void listenForHTTP(void *params);
 void listenForBluetooth(void *params);
-void task1(void *params);
+void monitorEventGroup(void *params);
 void app_main(void);
 
 
