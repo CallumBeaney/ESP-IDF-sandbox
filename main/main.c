@@ -8,6 +8,7 @@
 #include "tasks.h"
 #include "mutex.h"
 #include "queue.h"
+#include "sema.h"
 #include "../components/externComponents/extern.h"
 
 // ESP stuff
@@ -32,7 +33,7 @@ void app_main(void)
   // delayDemonstration_vTaskDelayUntil(10);
 
   // handleTwoTasksConcurrently();
-  // runTwoTasksWithHandlers();2
+  // runTwoTasksWithHandlers();
 
   // mutex();
   // makeQueue();

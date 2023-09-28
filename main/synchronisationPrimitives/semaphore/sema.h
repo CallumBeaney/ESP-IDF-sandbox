@@ -3,6 +3,6 @@
 
 void httpListener(void * params);
 void httpProcessor(void * params);
-void semaphorDemonstration(void);
+void semaphoreDemonstration(void);
 
 #endif
