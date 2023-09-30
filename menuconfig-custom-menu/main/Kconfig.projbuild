@@ -1,0 +1,51 @@
+# Note that this file MUST begin with a capital K
+
+# This adds a custom menu to the Menuconfig that allows you to define custom
+#   named variables accessible to your program, allowing for config at deployment
+# The below code will render something like:
+
+    # [ ] select yes or no 
+    # (hello world!) enter a string
+    # (1) in int
+    #     select a choice (this is option 1)
+
+# When these are compiled, the sdkconfig will register them with a CONFIG prefix
+
+menu "My Custom Menu"
+
+config MY_SECRET_STRING
+    # If the default is here, this is a problem 
+    #   so in ../ we use default variables in sdkconfig.defaults
+    string "enter information I don't want to be public"
+    
+
+config MY_BOOL
+    # default set in sdkconfig.defaults
+    bool "select yes or no" 
+
+config MY_STRING
+    string "enter a string"
+    # default "hello world!"
+    # remove default here and apply default in ../sdkconfig.defaults
+        help
+            this is my help text description
+
+config MY_INT
+    int "in int"
+    range 1 15
+
+config MY_CHOICE
+    choice
+        bool "select a choice"
+            default OPTION_1
+        config OPTION_1
+            bool "this is option 1"
+        config OPTION_2
+            bool "this is option 2"
+        config OPTION_3
+            bool "this is option 3"
+    endchoice    
+
+
+endmenu
+
