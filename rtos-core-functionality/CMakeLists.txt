@@ -9,4 +9,4 @@ cmake_minimum_required(VERSION 3.16)
 # to add an external components folder, do below noting forward slash:
 # set(EXTRA_COMPONENT_DIRS <path to dir>/dir)
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(sandbox)
+project(rtos-core-functionality)

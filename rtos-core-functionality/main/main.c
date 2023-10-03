@@ -9,7 +9,7 @@
 #include "mutex.h"
 #include "queue.h"
 #include "sema.h"
-#include "../components/externComponents/extern.h"
+#include "../externalComponents/logInfo.h"
 
 // ESP stuff
 #include "esp_system.h"
