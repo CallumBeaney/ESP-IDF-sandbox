@@ -3,9 +3,9 @@ idf_component_register(
   
   SRCS 
     "main.c"
-    "freeRTOScore/timers/timers.c"
-    "freeRTOScore/delay/delay.c"
-    "freeRTOScore/twotasks/tasks.c"
+    "timeHandling/timers/timers.c"
+    "timeHandling/delay/delay.c"
+    "synchronisationPrimitives/twotasks/tasks.c"
     "synchronisationPrimitives/mutex/mutex.c"
     "synchronisationPrimitives/semaphore/sema.c"
     "synchronisationPrimitives/queue/queue.c"
@@ -13,9 +13,9 @@ idf_component_register(
   
   INCLUDE_DIRS 
     "." 
-    "freeRTOScore/delay" 
-    "freeRTOScore/twotasks"
-    "freeRTOScore/timers"
+    "timeHandling/delay" 
+    "timeHandling/timers"
+    "synchronisationPrimitives/twotasks"
     "synchronisationPrimitives/mutex"
     "synchronisationPrimitives/semaphore"
     "synchronisationPrimitives/queue"

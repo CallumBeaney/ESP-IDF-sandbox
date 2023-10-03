@@ -69,10 +69,9 @@ void runTwoTasksWithHandlers(void)
   xTaskCreate(&sender, "sender", 2048, NULL, 2, NULL);
 }
 
-// __________________________________________________________________
 
 
-//// Here is a guide just to running two tasks concurrently
+/// Here is a guide just to running two tasks concurrently
 
 void task1(void * params) // note is a pointer to void; allows parameter type flexibility with casting as below
 {
@@ -84,7 +83,7 @@ void task1(void * params) // note is a pointer to void; allows parameter type fl
 
     printf("1:%i - %s\n", index++, (char *) params);
     vTaskDelay(1000 / portTICK_PERIOD_MS);
-    // if (index == 100) {vTaskDelete( NULL );}
+    if (index == 100) vTaskDelete( NULL ); /// use vTD if REALLY need to exit a task; you typically shouldn't.
   }
 }
 
