@@ -37,8 +37,8 @@ void app_main(void)
 
   // mutex();
   // makeQueue();
-
-  // blinker(2);
+  int BLINK_PIN = 48;
+  blinker(BLINK_PIN);
   // captureInput();
 }
 
@@ -73,7 +73,7 @@ void blinker(gpio_num_t PIN) {
   ESP_LOGI("PINFO", "Pin %d directionset result: %s", PIN, esp_err_to_name(result));
 
   uint32_t isOn = 0;
-  for (;;) 
+  while (1) 
   {
     isOn = !isOn; 
     esp_err_t result = gpio_set_level(PIN, isOn);
