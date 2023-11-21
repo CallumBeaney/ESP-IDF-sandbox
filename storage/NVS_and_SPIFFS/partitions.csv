@@ -1,6 +1,9 @@
 # this is a default example partition file provided in esp -> components -> partition_table
+# see your CMakeLists.txt in your main folder
 # the first line, starting nvs, tells you the default memory size, at 0x6000 (24kb)
 # to set this, see ./README.md and take note of the appropriate menuconfig->Serial Flasher Config setup
+
+# NOTE FAT ERROR: "nameTooLongException: Maximal length of the object name is 8 characters and 3 characters for extension!"
 
 # Name,   Type, SubType, Offset,  Size, Flags
 # Note: if you have increased the bootloader size, make sure to update the offsets to avoid overlap

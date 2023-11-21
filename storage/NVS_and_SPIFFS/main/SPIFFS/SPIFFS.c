@@ -13,17 +13,19 @@
 
 #define TAG "SPIFFS"
 
+
 void uploadWithSPIFFS(void)
 {
+  /// Note here nonconcordance of name of ../spiffs_dir and base_path. Is framework convention.
   esp_vfs_spiffs_conf_t config = {
-      .base_path = "/spiffs",
+      .base_path = "/spiffs", 
       .partition_label = NULL, /* if NULL, will use first partition it finds in the table CSV */
       .max_files = 5,  /*...that could be open at the same time. */
       .format_if_mount_failed = true,  /* If true, it will format the file system if it fails to mount. */
   };
   ESP_ERROR_CHECK(esp_vfs_spiffs_register(&config));
 
-  /// Note here nonconcordance of name of ../spiffs_dir and base_path. Is framework convention.
+  /// Again, using framework convention defined by base_path
   FILE *file = fopen("/spiffs/sub/data.txt", "r");
   if(file == NULL) {
     ESP_LOGE(TAG,"could not open file");
@@ -41,7 +43,7 @@ void uploadWithSPIFFS(void)
 
 
 
-void loopOverFiles(void) {
+void loopOverAndAccessFiles(void) {
   /// Much of this setup is the same as the above function
    esp_vfs_spiffs_conf_t config = {
       .base_path = "/spiffs",
@@ -89,6 +91,8 @@ void loopOverFiles(void) {
   }
   esp_vfs_spiffs_unregister(NULL);
 }
+
+
 
 
 /// obvs curry nonsense like this in a dev environment where possible

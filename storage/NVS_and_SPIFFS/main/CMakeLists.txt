@@ -19,4 +19,5 @@ idf_component_register(
 # set(COMPONENT_ADD_INCLUDEDIRS ".")
 # register_component()
 
+# Note that the NVS partition is handled differently.
 spiffs_create_partition_image(SPIFFPtnNameInCSVConfig ../spiffs_dir FLASH_IN_PROJECT)

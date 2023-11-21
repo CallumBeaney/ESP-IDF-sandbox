@@ -1,3 +1,6 @@
+# important
+- When returning to this for revision, ignore all the other files & folders but for your partitions.csv, your main folders' subfolders, and main/CMakeFile.txt. Choose a type of storage, read the summary below, and follow the code; notes made therein will contextualise the relevant additional scripts and folders.
+
 # SPIFFS
 - SPI FLASH FILE SYSTEM
 - Flash an entire directory into flash

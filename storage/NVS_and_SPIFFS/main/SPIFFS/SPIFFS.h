@@ -2,7 +2,7 @@
 #define SPIFFS_H
 
 void uploadWithSPIFFS(void);
-void loopOverFiles(void);
+void loopOverAndAccessFiles(void);
 void createReadWriteDelete(void);
 
 #endif
