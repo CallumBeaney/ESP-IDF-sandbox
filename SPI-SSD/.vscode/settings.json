@@ -57,9 +57,6 @@
     "unordered_map": "c",
     "vector": "c",
     "__string": "c",
-    "freertos.h": "c",
-    "task.h": "c",
-    "stdio.h": "c",
-    "rtc_io.h": "c"
+    "string.h": "c"
   }
 }
